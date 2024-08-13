@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopVerse Chapter - (Authorized King James Bible)</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="popVerse.css">
+
+	
+</head>
+
+<body class="body1">
+
+        <input class="radio" id="chap" name="group" type="radio" checked>
+        <input class="radio" id="vsList" name="group" type="radio">
+        <input class="radio" id="search" name="group" type="radio">
+        
+        <div class="tabs">
+            <label class="tab" id="chap-tab" for="chap">Chapter</label>
+            <label class="tab" id="list-tab" for="vsList">List</label>
+            <label class="tab" id="search-tab" for="search">Search</label>
+        </div>
+        
+        <div class="panels">
+            <div class="panel" id="chap-panel">
+                <div id="head1" class="head1">
+                    <div id="head"></div>
+                </div>
+                <div class="controls">
+                    <div align="center" style="padding-top: 10px; padding-bottom: 0px">
+                        <button title="Previous Chapter" style="margin-right: 12px;" id="prevBtn" class="btnchap">< Ch</button>
+                        <datalist id="books">
+                        <option value='Genesis'>
+                        <option value='Exodus'>
+                        <option value='Leviticus'>
+                        <option value='Numbers'>
+                        <option value='Deuteronomy'>
+                        <option value='Joshua'>
+                        <option value='Judges'>
+                        <option value='Ruth'>
+                        <option value='1Samuel'>
+                        <option value='2Samuel'>
+                        <option value='1Kings'>
+                        <option value='2Kings'>
+                        <option value='1Chronicles'>
+                        <option value='2Chronicles'>
+                        <option value='Ezra'>
+                        <option value='Nehemiah'>
+                        <option value='Esther'>
+                        <option value='Job'>
+                        <option value='Psalms'>
+                        <option value='Proverbs'>
+                        <option value='Ecclesiastes'>
+                        <option value='SongOfSolomon'>
+                        <option value='Isaiah'>
+                        <option value='Jeremiah'>
+                        <option value='Lamentations'>
+                        <option value='Ezekiel'>
+                        <option value='Daniel'>
+                        <option value='Hosea'>
+                        <option value='Joel'>
+                        <option value='Amos'>
+                        <option value='Obadiah'>
+                        <option value='Jonah'>
+                        <option value='Micah'>
+                        <option value='Nahum'>
+                        <option value='Habbakkuk'>
+                        <option value='Zephaniah'>
+                        <option value='Haggai'>
+                        <option value='Zechariah'>
+                        <option value='Malachi'>
+                        <option value='Matthew'>
+                        <option value='Mark'>
+                        <option value='Luke'>
+                        <option value='John'>
+                        <option value='Acts'>
+                        <option value='Romans'>
+                        <option value='1Corinthians'>
+                        <option value='2Corinthians'>
+                        <option value='Galatians'>
+                        <option value='Ephesians'>
+                        <option value='Philippians'>
+                        <option value='Colossians'>
+                        <option value='1Thessalonians'>
+                        <option value='2Thessalonians'>
+                        <option value='1Timothy'>
+                        <option value='2Timothy'>
+                        <option value='Titus'>
+                        <option value='Philemon'>
+                        <option value='Hebrews'>
+                        <option value='James'>
+                        <option value='1Peter'>
+                        <option value='2Peter'>
+                        <option value='1John'>
+                        <option value='2John'>
+                        <option value='3John'>
+                        <option value='Jude'>
+                        <option value='Revelation'>
+                     </datalist>
+                        <form id='ref' style="display: inline" autocomplete="off">
+                            <input style="border: 1px solid #9299EF; height: 25px;" ; type="text" id="refEntry" list="books" value="" placeholder=" John 3:16">
+                            <input title="Do Search" id="doRef" type="submit" value="Go">
+                        </form>
+                        <button title="Next Chapter" style="margin-left: 12px;" id="nextBtn" class="btnchap">Ch ></button></button>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; padding-top: 0px; padding-bottom: 5px; padding-right: 5px" ;>
+                        <button title="Back" style="margin-right: 12px; margin-top: 5px; width: 32px" id="histBtn" class="btnchap"><</button>
+                        
+                            <input id="xrefChk" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                            <label for="xrefChk" data-on="X-Refs" data-off="X-Refs"></label>
+                    </div>
+                
+                </div>
+                <div id="chap-main"></div>
+                <div align="center" style="padding-top: 10px; padding-bottom: 0px">
+                    <button style="margin-right: 60px;" id="prevBtn2" class="btnchap">< Ch</button>
+                    <button style="margin-left: 60px;" id="nextBtn2" class="btnchap">Ch ></button>
+                </div>
+                <div id="foot" class="footer">
+                    <font size="-1"><br>
+                        <div id="foot1" class="foot1">
+                            <font color="#990000"><b>PopVerse Bible Reference System</b></font><br>&#169; 2024, <a href="http://www.BibleAnalyzer.com" target="_blank">BibleAnalyzer.com</a></font>
+                    </div>
+                </div>
+            </div>
+            <div class="panel" id="list-panel">
+                <div id="vl-head1" class="head1">
+                    <div id="vl-head"><h2 class="bib">Verse List From Page</h2></div>
+                </div>
+                <div align="center" style="padding-top: 10px; padding-bottom: 10px">
+                </div>
+                <div id="list-main"><p>No Bibles References On Page.</p></div>
+                <div id="foot" class="footer">
+                    <font size="-1"><br><br>
+                        <div id="vl-foot1" class="foot1">
+                            <font color="#990000"><b>PopVerse Bible Reference System</b></font><br>&#169; 2024,
+                            <a href="http://www.BibleAnalyzer.com" target="_blank">BibleAnalyzer.com</a></font>
+                    </div>
+                </div>
+            </div>
+            <div class="panel" id="search-panel">
+                <div id="sch-head" class="head1" style="margin-bottom: 10px;">
+                    <div align="center">
+                        <h2 class="bib">Bible Search</h2>
+                        <p class="chapHead2">Enter word, words, or "phrase"</p>
+                        <form id='search' style="display: inline; padding-bottom: 10px">
+                            <input style=" height: 22px; width: 250px" ; type="text" id="schEntry" value="" placeholder=" Word or Phrase">
+                            <input id="doSearch" type="submit" value="Search">
+                        </form>
+                    </div>
+                </div>
+				
+				
+                <div class="head1" id="search-details">
+                    <p align="left" style="font-size: smaller;">Place quotation marks around a phrase, i.e. <i>"born again."</i></p><p align="left" style="font-size: smaller;"> The Asterisk (*) is a wildcard character, i.e. <i>right*</i> will find all words that begin with "right."</p><p align="left" style="font-size: smaller;"> Multiple words separated by a space will search for ANY word, i.e.
+                        <i>day night</i>.</p><p align="left" style="font-size: smaller;"> Multiple words separated by a "&" will search for ALL words, i.e. <i>day & night</i>.</p>
+                </div>
+				<div id="visualHolder">
+				<div class="search-visual" id="search-visual" style="display: block;"></div>
+				<span class="search-visual-label" id="search-visual-label"></span></div>
+				
+                <div id="search-hits"></div>
+            </div>
+        </div>
+
+    <script src="browser.js"></script>
+    <script src="refEntry.js"></script>
+    <script src="chap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+
+
+[
+  {
+    "id" : 1,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "blueletterbible.org",
+      "resourceTypes" : ["script"]
+    }
+  },
+
+  {
+    "id" : 2,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "biblegateway.com",
+      "resourceTypes" : ["script"]
+    }
+  },
+
+  {
+    "id" : 3,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "biblia.com",
+      "resourceTypes" : ["script"]
+    }
+  },
+
+  {
+    "id" : 4,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "api.reftagger.com",
+      "resourceTypes" : ["script"]
+    }
+  }
+
+
+]
+
+
+
+
+
+
+
+

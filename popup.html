@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html><head><title>PopVerse Bible Reference System</title>
+
+<style type="text/css" media="screen">
+body { min-width: 420px; font-size: 14px;}
+
+h2 {
+color: #990000;
+font-family: Verdana,Geneva,sans-serif;
+font-size: 16px;
+text-align: center;
+margin-bottom: 0px;
+margin-top: 0px;
+}
+
+.head1 {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(255, 252, 237)), to(rgb(247, 242, 187)));
+	padding: 5px;
+	border: 2px solid #BFBA7F;
+	border-radius: 5px;
+}
+
+p {
+    margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+.foot {font-size: 11px; text-align: right; margin-top: 0px;}
+.button {margin-top: 3px;}
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+input.cmn-toggle-yes-no + label {
+  padding: 3px;
+  width: 60px;
+  height: 24px;
+}
+input.cmn-toggle-yes-no + label:before,
+input.cmn-toggle-yes-no + label:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #444444;
+  font-family: "Verdana", sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 28px;
+  border: 1px solid #989898;
+}
+input.cmn-toggle-yes-no + label:before {
+  background-color: #dddddd;
+  content: attr(data-off);
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no + label:after {
+  background-color: #E8D588;
+  content: attr(data-on);
+  transition: transform 0.5s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no:checked + label:before {
+  transform: rotateY(180deg);
+}
+input.cmn-toggle-yes-no:checked + label:after {
+  transform: rotateY(0);
+}
+
+.optBorder {
+    border: 3px solid #ddd;
+	padding: 8px;
+}
+
+</style>
+
+
+
+</head>
+<body>  
+
+<div class="head1">   
+<h2 class="bib"><font color="#660000">PopVerse Bible Study System</font><br>
+</h2>
+</div>
+
+<p>PopVerse is a completely self-contained Bible study utility.</p> 
+<ul><li>It automatically links Bible references found in webpages allowing the text to be viewed in a popup on mouseover or in a separate browser window on click.</li>
+<li>It includes the <i>Authorized King James</i> and <i>Berean Standard Bibles</i> and works offline</li>
+<li>It can show key cross references for each verse from the <i>Treasury of Scripture Knowledge</i>.</li>
+<li>It will show a verse list from all the Bible references in the current page.</li>
+<li>It has Bible searching capability with a visual search hit guide.</li>
+</ul>
+
+<p><b>Select Version</b></p>
+          <div class="optBorder">
+            <div align="left">
+              <form name="bibGrp">
+              <input name="bib1" value="0" type="radio" />Authorized King James Bible
+              <br />
+              <input name="bib1" value="1" type="radio" />Berean Standard Bible
+              <br />
+			  </form>
+            </div>
+          </div>
+
+<p>Enter a reference (i.e. Gen 3.15; Mat 4:4-6; etc.) or Bible word in the entry below. </p>
+
+<div align="center">
+<form>
+<p><input style="height: 20px;" type="text" id="iconEntry" value="" placeholder=" Ref. or Word">
+<input id="onIconGo" type="submit" value="Go"></p>
+</form>
+
+
+
+<p>For more information about PopVerse, see <a href="https://www.preservedwords.com/popverse.html" target="_blank">this page.</a></p>
+
+<table width="100%"><tbody><tr><td>
+<div class="switch">
+  <input id="enableChk" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+  <label for="enableChk" data-on="Enabled" data-off="Disabled"></label>
+</div>
+</td>
+<td>
+<p class="foot">Developed in the United States by<br><a href="http://www.BibleAnalyzer.com" target="_blank">BibleAnalyzer.com</a> 2024 v2.5</p>
+</td></tr></tbody></table>
+
+
+<script src="refEntry.js"></script>
+<script src="popup.js"></script>
+
+</body></html>

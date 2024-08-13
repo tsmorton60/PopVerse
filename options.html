@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="generator"
+    content="">
+    <title>PopVerse Options</title>
+    
+    <link href="options.css" rel="stylesheet" type="text/css" />
+    <!--<link href="opttabs.css" rel="stylesheet" type="text/css" />-->
+    
+  </head>
+  <body>
+  <h1 class="head">PopVerse Help & Options</h1>
+  
+  <div class="main">
+    
+    <div style="margin: auto; width: 800px;">
+    
+        <!--
+    
+        <input class="radio" id="link" name="group" type="radio" checked>
+        <input class="radio" id="search" name="group" type="radio">
+        <input class="radio" id="help" name="group" type="radio">
+        
+        <div class="tabs">
+            <label class="tab" id="link-tab" for="link">Linking</label>
+            <label class="tab" id="search-tab" for="search">Searching</label>
+            <label class="tab" id="help-tab" for="help">Help</label>
+        </div>
+        -->
+    
+          
+      <ul class="tabs" data-persist="true">
+        <li>
+          <a href="#view1">Linking</a>
+        </li>
+        <li>
+          <a href="#view2">Searching</a>
+        </li>
+        <li>
+          <a href="#view3">Help</a>
+        </li>
+        <li>
+          <a href="#view4">About</a>
+        </li>
+        <li>
+          <a href="#view5">History</a>
+        </li>
+      </ul>
+      
+      <div class="tabcontents">
+        <div id="view1">
+		<h3>PopVerse Options</h3>
+ <p><b>Select Version</b>
+	<br />(This can also be changed when clicking the PV icon in the browser toolbar.)</p>
+          <div class="optBorder">
+            <div align="left">
+              <form name="bibGrp">
+              <input name="bib1" value="0" type="radio" />Authorized King James Bible
+              <br />
+              <input name="bib1" value="1" type="radio" />Berean Standard Bible
+              <br />
+			  </form>
+            </div>
+          </div>
+         
+		 <p>
+          <b>Theme Color Options</b>
+          <br />The dominate color of the PopVerse popups and Chapter/Verse List pages can be changed below.</p>
+          
+          <div class="optBorder">
+            <div align="left">
+              <form name="colorGrp">
+              <input name="color1" value="0" type="radio" />Light Brown
+              <br />
+              <input name="color1" value="1" type="radio" />Light Gray
+              <br />
+              <input name="color1" value="2" type="radio" />Light Red
+              <br />
+              <input name="color1" value="3" type="radio" />Light Green
+              <br />
+              <input name="color1" value="4" type="radio" />Light Blue
+              <br /></form>
+            </div>
+          </div>
+          
+          <p>
+          <b>Remote Reference Scripts Disabled</b>
+          <br />Some web pages with Bible references use a "remote script" (
+          <i>RefTagger, etc.,</i>) to create links of the references. 
+          <i>PopVerse</i> attempts to block these scripts so it can insert its links more effectivly. If you wish to view pages
+          without 
+          <i>PopVerse's</i> influence, click off the 
+          <i>Enable/Disable Button</i> under the 
+          <i>PopVerse</i> icon (at upper right). Or you can do the same below.</p>
+          <div class="optBorder">
+            <form>
+            <input id="enable1" type="checkbox" />Enable PopVerse. 
+            <small>
+              <i>(Any open tabs must be refreshed to update.)</i>
+            </small></form>
+          </div>
+          <p>
+          <b>Link Partial References</b>
+          <br />Sometimes web pages have partial references; references that are missing the Bible Book (i.e 
+          <i>3:16</i>). PopVerse can link these references using the Book from the last linked reference. Usually this works fine,
+          however, it can also lead to wrong links on occasion. If you wish to enable this feature, check the box below.</p>
+          <div class="optBorder">
+            <form>
+            <input id="partial1" type="checkbox" />Enable Partial Reference Linking. 
+            <small>
+              <i>(Any open tabs must be refreshed to update.)</i>
+            </small></form>
+          </div>
+          <p></p>
+          <div id="foot" class="footer">
+            <div class="foot1">
+            <font color="#990000">
+              <b>PopVerse Bible Reference System</b>
+            </font>
+            <br />© 2024, 
+            <a href="http://www.BibleAnalyzer.com" target="_blank">www.BibleAnalyzer.com</a></div>
+          </div>
+        </div>
+        
+        <div id="view3">
+        <p>
+          <b>PopVerse Doesn't Appear To Work On All Pages</b>
+        </p>
+        <p>PopVerse should work on nearly all typical web pages where religious content is found, even most of those which have an
+        existing "remote script" type linking system (such as gotquestions.org, etc.). We have tested PopVerse on many
+        websites with various styles of layout and design, however, some highly specialized pages such as Facebook, gmail, etc.,
+        will not allow PopVerse to function. Usually this is a conflict with one or more of the many custom scripts currently
+        running on the page.</p>
+        <p>Furthermore, if Bible references on a page are "hard linked" to another page (the references are tagged in the
+        page source), PopVerse will not work. PopVerse works best on pages where the references are simple plain text.
+        <br /></p>If you encounter a page where PopVerse doesn't work and you think it should, 
+        <a href="mailto:morton@bibleanalyzer.com">contact us</a>. We will check it out.
+        <br />
+        <br />
+        <br />
+        <b>Guidelines For Entering References In PopVerse</b>
+        <br />
+        <br />
+        <i>The PopVerse Entry can accept nearly any standard Bible reference notation.</i> 
+        <i>The minimum consecutive characters needed to distinguish one book from another is all that is required,</i>
+        <br />
+        <ul>
+          <li>Genesis 3:15 (or Gen. 3:15, Ge 3:15)
+          <br /></li>
+          <li>Psalms 2:10 (or Psa 2:10, Ps 2:10)
+          <br /></li>
+          <li>1 Cor 1:5 (or 1Co 1:5)
+          <br /></li>
+        </ul>
+        <i>Typical non-consectutive abbreviations can be used as well. Also, periods or colons can be used as chapter/verse
+        separators,</i>
+        <br />
+        <ul>
+          <li>Jn 3.16 (or Jn 3:16)
+          <br /></li>
+          <li>Mt 4.4
+          <br /></li>
+        </ul>
+        <i>Verse spans and multiple verses within a single chapter can be included,</i>
+        <br />
+        <ul>
+          <li>Mat 5:5-7</li>
+          <li>Luke 16:3, 5, 10
+          <br /></li>
+        </ul>Chapters only and book names alone can be entered. With book names only the display will show the first chapter,,
+        <br />
+        <ul>
+          <li>Ge 3</li>
+          <li>Psa 23</li>
+          <li>Ruth (will display Ruth chapter 1)
+          <br /></li>
+        </ul>
+        <p>Any entry beyond the range of existing chapters for a book will cause this page to be displayed. For example, Genesis
+        has 50 chapters. If "Gen 55" is entered, there is no text to display.</p>
+        <p>
+          <br />
+        </p>
+        <div id="foot" class="footer">
+          <div class="foot1">
+          <font color="#990000">
+            <b>PopVerse Bible Reference System</b>
+          </font>
+          <br />© 2024, 
+          <a href="http://www.BibleAnalyzer.com" target="_blank">www.BibleAnalyzer.com</a></div>
+        </div></div>
+        
+        <div id="view4">
+          <p>Like many believers, we visit Christian websites on the Internet, some of them fairly frequently. Nearly always there
+          is Scripture referenced in the text, often many references. However, when reading a page I almost never looked a
+          reference up in my Bible.</p>
+          <p>Some sites have the the references as links which will take you to a webpage with the text or even show the text in a
+          popup when the cursor is over the reference. This is a helpful feature, but there are still shortcominigs,</p>
+          <ul>
+            <li>
+              <i>Often the Bible version you see is not the King James Version.</i>
+            </li>
+            <li>
+              <i>There is a delay before the popup displays, especially if you have a slow connection.</i>
+            </li>
+            <li>
+              <i>The links do not work offline at all.</i>
+            </li>
+            <li>
+              <i>You cannot enter a verse to view.
+              <br /></i>
+            </li>
+            <li>
+              <i>When you click a link you are taken to another site and often subjected to unwanted adds, promotions, etc.</i>
+              <br />
+            </li>
+          </ul>
+          <p>Nevertheless, most sites don't have their Bible references as links, and that presented an opportunity.</p>
+          <p>After doing some research we determined a Chrome Browser Extension was the best direction to make an
+          "stand-alone" reference tagger/viewer, and working in our spare time, the Lord allowed PopVerse to be
+          developed. There is no other reference tagging tool like it, and here's why.</p>
+          <ul>
+            <li>
+            <b>Fully Self-Contained; King James Version and Berean Standard Bibles are Included!</b>
+            <br />PopVerse does not rely on online sources. The entire Bible text is included and access to it is
+            instantaneous. It works perfectly offline.</li>
+            <li>
+            <b>Instant Reference Context Viewing</b>
+            <br />Clicking a linked reference will cause a small "popup" browser window to open showing the entire Bible
+            chapter containing the highlighted references(s).</li>
+            <li>
+            <b>Context Menu Verse List</b>
+            <br />A Right-click will open a Verse List from References option where the text of all the Bible references on a page
+            will be loaded in another popup browser window.</li>
+            <li>
+            <b>Easy Reference Entry</b>
+            <br />A simple click of the PopVerse icon will open a 
+            <i>Quick Reference Entry</i> where the user can enter a reference to view.
+            <br /></li>
+            <li>
+            <b>View Key Cross-References from TSK</b>
+            <br />The option is available to view up to four relevant cross-references per verse from the 
+            <i>Treasury of Scripture Knowledge</i>. The cross-references will display in the right column of the Chapter Window and
+            will be live and interactive as other links.</li>
+          </ul>
+          <p>PopVerse has proven to be a valuable tool for viewing Bible text from references in web pages.</p>
+          <div id="foot" class="footer">
+            <div class="foot1">
+            <font color="#990000">
+              <b>PopVerse Bible Reference System</b>
+            </font>
+            <br />© 2024, 
+            <a href="http://www.BibleAnalyzer.com" target="_blank">www.BibleAnalyzer.com</a></div>
+          </div>
+        </div>
+        
+		<div id="view5">
+		  <b>v2.5.1</b>
+		  <br />
+		  <ul>
+			<li>Updated to Chrome Extension manifest v3</li>
+			<li>Added Berean Standard Bible option</li>
+			<li>Fixed ResizeObserver error</li>
+			<li>Minor appearance changes</li>
+		</ul>
+
+		  <b>v2.0.1</b>
+		  <br />
+		  <ul>
+			<li>Added Search function</li>
+			<li>Verse list is automatically generated when tab is selected</li>
+			<li>Added tabed interface to the display window</li>
+			<li>Added several other visual features and enhancements</li>
+		</ul>
+
+			
+          <b>v1.0.8</b>
+          <br />
+          <ul>
+            <li>Will now work with image maps (
+            <a href="http://preservedwords.com/larkin-redrawn.html" target="_blank">Example page</a>)</li>
+            <li>Correct errors in cross-references</li>
+          </ul>
+          <b>v1.0.5</b>
+          <br />
+          <ul>
+            <li>Option to View Key TSK Cross-References in Chapter Window</li>
+            <li>Ability to Instantly Toggle Cross-Reference Panel On/Off</li>
+            <li>Verse Entry Available in Chapter Window
+            <br /></li>
+            <li>Option to Link Partial references (i.e. "3:16")</li>
+            <li>Verse List References Are Now Links
+            <br /></li>
+            <li>Several Appearance Modifications</li>
+          </ul>
+          <b>v0.9</b>
+          <br />
+          <ul>
+            <li>New Options Page</li>
+            <li>Can Select Popup and Window Color</li>
+            <li>Ability to Enable/Disable PopVerse from Icon</li>
+            <li>A Badge on Icon Showing Number of Inserted Links on Page</li>
+            <li>Now Blocks "Remote Linking Scripts" allowing pages to be Linked by PopVerse</li>
+            <li>Can Now Recognize Even More References</li>
+          </ul>
+          <b>v0.7</b>
+          <br />
+          <ul>
+            <li>Added Reference Entry capability under icon.</li>
+            <li>Size and Position of chapter and verse list windows is now saved.</li>
+            <li>Added Prev/Next chapter buttons to Chapter Display Window.</li>
+            <li>Can now right-click on links for verse list menu.</li>
+            <li>Slightly modified reference finding code to link more references.</li>
+          </ul>
+          <b>v0.5</b>
+          <br />
+          <ul>
+            <li>Initial Release</li>
+          </ul>
+        </div>
+		
+        <div id="view2">
+			<h3><b>Searching The Bible</b></h3>
+			<p>Beginning with v2.0, <i>PopVerse</i> has had Bible searching capabilities. A user can search for a word, multiple words, or a phrase with optional wildcards.</p>
+			<p>Search terms can be entered in four ways:</p>
+			<ol>
+				<li>By entering the search query into the <i>Entry Box</i> under the PopVerse Extension Icon.</li>
+				<li>By entering the search text into the <i>Entry</i> in the <i>Search Panel</i> under the <i>Search</i> tab.</li>
+				<li>By selecting, dragging, and dropping a word from a page into the Entry Box.</li>
+				<li>By selecting a word on a page and on right-click selecting "Search for word in Bible."</i>.</li>
+			</ol>
+			<p>How to perform searches:</p>
+			<ul>
+				<li><p>To search for a single word, simply enter the word and click <i>Search</i> or press the <i>Enter key</i>.</p></li>
+				<li><p>If multiple words are entered separated by a space, PopVerse will search for ANY of the words. (A Boolean "OR" search).</p></li>
+				<li><p>If multiple words are entered separated by an " & " symbol, PopVerse will search for ALL of the words in a verse. (A Boolean "AND" search) For example <i>born & again</i> will only find verses that have both words in them.</p></li>
+				<li><p>If quotation marks are around words, the exact phrase will be searched for. i.e. "born again" will search only for that exact phrase. (Punctuation in the Bible text is ignored).</p></li>
+				<li><p>Wildcards can be used in conjunction with entered text. The Asterisk "*" acts as any unknown character(s). For example entering <i>right*</i> will find all words that begin with "right" ("righteous," etc.) Entering <i>*right</i> will find all words that end with "right" ("birthright," etc.</p></li>
+				<li><p>With the search results there is a concise multi-colored hit display that shows how the results are spread throughout the Bible. Each bar represents a Bible book and on mouseover will display the book name and number of search hits. When a bar is clicked the display will scroll to that book in the results list.</p></li>
+			</ul>
+			<p><i>Hints:</i> </p>
+			<ul><li><p>Words found in the search results can themselves be used as search terms by right-click or by dragging and dropping into the Entry.</p></li>
+			<li><p>Wildcards can be used in combination with multiple word searches, i.e. <i>etern* everl*</i> will find "eternal," "eterninty," "everlasting," etc.</p></li>
+			</ul>
+		</div>
+		
+      </div>
+    </div>
+  </div>
+  <script src="options.js"></script> 
+</html>
