@@ -40,6 +40,9 @@ var clrFrom;
 var clrTo;
 var clrRow;
 
+var altColor;
+var altBack;
+
 //var scnW = window.screen.width;
 //var scnH = window.screen.height;
 
@@ -101,7 +104,7 @@ var chapIdx = {
     "Eph": 6,
     "Phi": 4,
     "Col": 4,
-    "1Th": 6,
+    "1Th": 5,
     "2Th": 3,
     "1Ti": 6,
     "2Ti": 4,
@@ -110,7 +113,7 @@ var chapIdx = {
     "Heb": 13,
     "Jam": 5,
     "1Pe": 5,
-    "2Pe": 4,
+    "2Pe": 3,
     "1Jo": 5,
     "2Jo": 1,
     "3Jo": 1,
@@ -205,9 +208,16 @@ chrome.storage.local.get({enableState: true}, function(items) {
 
 chrome.storage.local.get({currentBib: 0}, function(items) {
 	currentBib = items.currentBib;
-	console.log(currentBib, 'currentBib')
 });
 
+chrome.storage.local.get({altBack: true}, function(items) {
+	altBack = items.altBack;
+	if (altBack == true) {
+		altColor = '#FCF8DB';
+	} else {
+		altColor = '#FCFCFC'
+	}
+});
  
 
 chrome.storage.local.get({xrefState: true}, function(items) {
@@ -236,8 +246,16 @@ function (request, sender, sendResponse) {
 		clrFrom = request.colorFrom;
 		clrTo = request.colorTo;
 		clrRow = request.colorRow;
+		
+    } else if (request.msg == "setAltState") {
+		var doAlt = request.state;
+		if (doAlt == true) {
+			altColor = '#FCF8DB';
+		} else {
+			altColor = '#FCFCFC'
+
+		}
 	}
-	
 });
 
 
@@ -381,9 +399,11 @@ chrome.runtime.onMessage.addListener(
 
         } else if (msg.from === 'nextBtn') {
             var prs = /(\w\w\w) (\d+):/.exec(currentChap);
+			console.log(currentChap, prs, 'prs') 
             var bk = prs[1];
             var chInt = Number(prs[2]);
             var chMaxInt = chapIdx[bk];
+			var bkIdx;
             if (chInt < chMaxInt) {
                 var nextInt = chInt + 1;
                 var nextChap = bk + " " + nextInt + ":";
@@ -656,7 +676,6 @@ function getChapText(chap, vsList) {
 			clss = 'verse';
 		}
 		
-		
 		var xStr = '';
 		if (showXrefs === true) {
             
@@ -680,11 +699,17 @@ function getChapText(chap, vsList) {
 			if (vs % 2 === 0) {
 				var vsTxt = '<tr><td width="75%"><a name="' + vs + '"></a><div class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div></td>' + xStr;
 			} else {
-				var vsTxt = '<tr style="background-color: #FCF8DB;"><td width="75%"><a name="' + vs + '"></a><div class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div></td>' + xStr;
+				var vsTxt = '<tr style="background-color: ' + altColor + ';"><td width="75%"><a name="' + vs + '"></a><div class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div></td>' + xStr;
 			}
 		
 		} else {
-			var vsTxt = '<a name="' + vs + '"></a><div class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div>';
+			
+			if (vs % 2 === 0) {
+				var vsTxt = '<a name="' + vs + '"></a><div class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div>';
+			} else {
+				var vsTxt = '<a name="' + vs + '"></a><div style="background-color: ' + altColor + ';" class="' + clss + '" id="vs' + vs + '"><b>' + vs + '</b> ' + currBibText[hits[idx]] + '</div>';
+			}
+			
 		}
 
 		//console.log(vsTxt); 
@@ -712,13 +737,11 @@ function getBible() {
 		currBibText = bsbBib; 
 		currBibTitle = 'Berean Standard Bible';
 	}
-	console.log(currentBib, 'currentBib2') 
 }
 
 var checkRef = function(ref, type) {
 	
 	getBible()
-	console.log(currentBib, 'currentBib3')
    
    //console.log(ref + ' cr')
     var grp = ref.split(',');
@@ -980,28 +1003,47 @@ function sendToSearch(schTerm, schTxts, schTCount, schVCount, schBookHits) {
     });
 }
 
+chrome.runtime.onInstalled.addListener(async () => {
+    chrome.contextMenus.create({
+      id: '1',
+      title: 'PopVerse: Copy Bible Verse Text',
+      type: 'normal',
+      contexts: ['link']
+    });
+});
 
 
-/*
-chrome.webRequest.onBeforeRequest.addListener(function(items) { 
-	//alert(items.url + ' has been disabled.'); 
-	return {cancel: true}; }, {
+chrome.contextMenus.onClicked.addListener((item, tab) => {
 	
-		urls: [
-		"*://api.reftagger.com/*", 
-		"*://bible.logos.com/jsapi/*",
-		"*://biblia.com/bible/*",
-		"*://www.blueletterbible.org/assets/scripts/*", 
-		"*://www.biblegateway.com/public/link-to-us/tooltips/*", 
-		"*://labs.bible.org/api/NETBibleTagger/*",
-		"*://www.esvapi.org/crossref/*",
-		"*://pv/*",
-		], 
-		types: ["script"]
-  },
-		["blocking"]
-);
-*/
+	var url = item.linkUrl;
+	//console.log(url); 
+	
+	if (! url.includes('popverse:')) {
+		console.log('Not a PopVerse Link') 
+		return
+	}
+
+	var origref = url.match(/\/(\w\w\w_.*?)$/)[1];
+	var ref = origref.replace("_", " ");
+	
+	var txt = checkRef(ref, 0) + ' (' + ref + ')';
+	txt = txt.replace(/<.+?>/g, '');
+	//console.log(txt); 
+	
+	(async () => {
+	  const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+	  
+	  await chrome.tabs.sendMessage(tab.id, {
+            message: "copyText",
+            textToCopy: txt 
+		  
+		  });
+	})();
+	
+	
+});
+
+
 
 /*
 

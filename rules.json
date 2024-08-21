@@ -39,6 +39,26 @@
       "urlFilter" : "api.reftagger.com",
       "resourceTypes" : ["script"]
     }
+  },
+
+  {
+    "id" : 5,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "labs.bible.org",
+      "resourceTypes" : ["script"]
+    }
+  },
+
+  {
+    "id" : 6,
+    "priority": 1,
+    "action" : { "type" : "block" },
+    "condition" : {
+      "urlFilter" : "static.esvmedia.org",
+      "resourceTypes" : ["script"]
+    }
   }
 
 

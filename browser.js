@@ -129,7 +129,7 @@
 		map[i].addEventListener("mouseout", linkMouseout, false);
 	}
 	
-	//removeLinks();
+	removeLinks();
 	refLinker(document);
 
 	createContainer();
@@ -144,7 +144,7 @@ var titleInsert;
 chrome.storage.local.get({ctrlOpt: 0, titleInsert: 1}, function(items) {
 	//ctrlOpt = items.ctrlOpt;
 	titleInsert = items.titleInsert;
-	console.log(items); 
+	//console.log(items); 
 });
 
 
@@ -340,11 +340,11 @@ chrome.storage.local.get({colorTheme: 0,}, function(items) {colorTheme = items.c
  
 // Removes hard links from sites with links to blacklist so PV can work. 
 function removeLinks () {
-	var blackList = /biblehub.com|biblegateway.com/;
+	var blackList = /biblegateway.com|blueletterbible.org\/...\/|biblia.com\/bible|esv.org\/verses/;
 	var link, links = document.links;
 	var i = links.length;
 	
-	console.log(links) 
+	//console.log(links) 
 
 	while (i--) {
 		link = links[i];
@@ -359,8 +359,9 @@ function removeLinks () {
 // Saves last tagged book for a partial reference.
 // Placed here so it will be saved beyond current element (paragraph). Can cause false ref.
 var doPartial;
-chrome.storage.local.get({partialState: false,}, function(items) {console.log(items); doPartial = items.partialState;
-var lastBook = null;
+chrome.storage.local.get({partialState: false,}, function(items) {
+	doPartial = items.partialState;
+	var lastBook = null;
 });
  
  // Based on Firefox Refilizer add-on
@@ -697,6 +698,7 @@ var lastBook = null;
 
 
  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	 //console.log(request) 
      if (request.action == "getLinks") {
          var lnks = [];
          l = document.links;
@@ -708,11 +710,29 @@ var lastBook = null;
          }
          sendResponse({
              links: lnks,
-			 //url: window.location.href
 			 title: document.title
          });
-     }
+     
+	 } else if (request.message == "copyText") {
+		 
+		copyToTheClipboard(request.textToCopy); 
+		//console.log(request.textToCopy);
+	 } 
  });
+ 
+async function copyToTheClipboard(textToCopy){
+    const el = document.createElement('textarea');
+    el.value = textToCopy;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+}
+ 
+ 
  
 // window.onerror = function (errorMsg, url, lineNumber) {
 //    alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber);

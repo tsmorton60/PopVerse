@@ -13,7 +13,7 @@
     "Makes links of Bible refs for included KJV and BSB Bibles. View via popup or window. Supports reference entry and searching.",
 
 "version":
-    "2.5.1",
+    "2.5.3",
 
 "background":{
     "service_worker": "background.js",
@@ -44,7 +44,9 @@
 
 "permissions": [
     "storage",
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+	"contextMenus",
+	"clipboardWrite"
 ],
 
 

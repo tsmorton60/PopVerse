@@ -184,7 +184,7 @@ function saveCtrlOptions() {
 
 function checkEnable() {
 	var isEnabled = document.getElementById('enable1').checked;
-	console.log(isEnabled);
+	//console.log(isEnabled);
 	chrome.runtime.sendMessage({msg: "setEnableState", state: isEnabled});
 	
 	if (isEnabled === true) {
@@ -197,9 +197,16 @@ function checkEnable() {
 
 function partialEnable() {
 	var isEnabled = document.getElementById('partial1').checked;
-	console.log(isEnabled);
+	//console.log(isEnabled);
 	chrome.storage.local.set({partialState: isEnabled});
 }
+
+function altBackground() {
+	var isEnabled = document.getElementById('altBack').checked;
+	chrome.storage.local.set({altBack: isEnabled});
+	chrome.runtime.sendMessage({msg: "setAltState", state: isEnabled});
+}
+
 
 function titleInsert() {
 	var isEnabled = document.getElementById('titleInsert').checked;
@@ -215,12 +222,14 @@ function restore_options() {
 	ctrlOpt: 0,
 	enableState: true,
 	titleInsert: true,
-	partialState: false
+	partialState: false,
+	altBack: true
 	}, function(items) {
 		document.bibGrp.bib1[items.currentBib].checked = true;
 		document.colorGrp.color1[items.colorTheme].checked = true;
 		document.getElementById('enable1').checked = items.enableState;
 		document.getElementById('partial1').checked = items.partialState;
+		document.getElementById('altBack').checked = items.altBack;
   });
 }
 
@@ -245,6 +254,7 @@ document.getElementsByName('colorGrp')[0].addEventListener('change', saveColorOp
 
 document.getElementById('enable1').addEventListener('change', checkEnable);
 document.getElementById('partial1').addEventListener('change', partialEnable);
+document.getElementById('altBack').addEventListener('change', altBackground);
 	
 	
 	

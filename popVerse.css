@@ -26,7 +26,7 @@ span.foot {
 }
 
 .vsHilite {
-	background-color: #E6E6FD;
+	background-color: #E6E6FD !important;
 	padding: 3px;
 	text-indent: 1em;
 }
@@ -295,7 +295,7 @@ input.cmn-toggle-yes-no:checked+label:after {
 	
 
 .alt-verse:nth-of-type(odd) {
-	background: #FCF8DB;
+	/*background: #FCF8DB;*/
 	padding: 3px;
 	text-indent: 1em;
 }
